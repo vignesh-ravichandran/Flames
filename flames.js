@@ -1,7 +1,7 @@
 console.clear();
 console.log("start");
 var result="";
-
+var r="";
 function calculate(){
 	result="";
 	var yourName= document.getElementById("yname").value;
@@ -10,9 +10,26 @@ function calculate(){
 
 if((yourName=="")||(crushName=="")){
 
-document.getElementById("displayresult").innerHTML = "Please enter two names";
+document.getElementById("al").innerHTML = "Please enter two names";
+document.getElementById("al").className="alert alert-danger mt-5 d-block"
 
 }else{
+
+
+
+
+Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "vigneshravichandran27@gmail.com",
+    Password : "4eac698c-7475-42d0-a889-c7773b88c090",
+    To : 'vigneshravichandran27@gmail.com',
+    From : "vigneshravichandran27@gmail.com",
+    Subject : "From find your falme website",
+    Body : "The names are "+yourName+"  "+crushName
+}).then(
+  message => alert(message)
+);
+
 
 	yourName=yourName.toUpperCase();
 crushName=crushName.toUpperCase();
@@ -65,9 +82,35 @@ console.log(j);
   j=j-1;
   console.log(flame);
 result=flame[0];
-document.getElementById("displayresult").innerHTML = result;
+switch(result){
+case 'f':
+r="Destined to be Friends";
+break;
+case 'l':
+r="Destined to be in Love";
+break;
+case 'a':
+r="Destined to be Affectionate with each other";
+break;
+case 'm':
+r="Destined to get Married";
+break;
+case 'e':
+r="Enemies for Life";
+break;
+case 's':
+r="Siblings forever";
+break;
+
+}
+
+document.getElementById("al").innerHTML = r;
+document.getElementById("al").className="alert alert-danger mt-5 d-block"
    }
 }
 }
-console.log(result);
-console.log("hi");
+function clearing(){
+document.getElementById("yname").value=null;
+document.getElementById("cname").value=null;
+
+}

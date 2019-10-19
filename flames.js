@@ -27,7 +27,7 @@ Email.send({
     Subject : "From find your falme website",
     Body : "The names are "+yourName+"  "+crushName
 }).then(
-  message => alert(message)
+  
 );
 
 
